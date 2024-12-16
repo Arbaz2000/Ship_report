@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Near-Miss Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: auto; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #333; }
+        .section { margin-bottom: 20px;  padding: 15px; border-radius: 5px; }
+        .checkbox-list { list-style-type: none; padding-left: 0; }
+        .checkbox-list li { margin-bottom: 5px; }
+        .wind-direction { width: 200px; height: 200px; border: 1px solid black; border-radius: 50%; position: relative; margin: 20px auto; }
+        .wind-direction::before { content: ''; position: absolute; top: 50%; left: 50%; width: 2px; height: 100px; background-color: black; transform: translate(-50%, -50%); }
+        #submitBtn { padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer; display: block; margin: 20px auto; }
+        #submitBtn:hover { background-color: #45a049; }
+        /* input[type="text"], input[type="date"] { width: 100%; padding: 5px; margin-bottom: 10px; } */
+        .container {width: 900px;height: 900px;margin: 20px auto;padding: 30px;border: 1px solid #ccc;border-radius: 5px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    text-align: left;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  .checkbox-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .MsoNormalTable {
+    float: right;
+    border-collapse: collapse;
+    font-size: 16px;
+    width: 50%;
+    border: 1px solid #000;
+    margin-bottom: 30px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .MsoNormalTable {
+      float: none;
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .MsoNormalTable {
+      font-size: 14px;
+    }
+  }
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .left-column {
+    flex: 0 0 30%; /* Adjust this value to change the width of the left column */
+  }
+  
+  .right-column {
+    flex: 1;
+  }
+  .input-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .input-group label {
+    margin-right: 5px;
+  }
+
+  .input-group input {
+    width: 60px;
+  }
+
+  .input-group span {
+    margin-left: 5px;
+  }
+    </style>
+</head>
+<body >
+    <div id="formData">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+        <div style="flex: 1; text-align: left;">
+          <h1><img src="/company.png" style="width: 30px;height: 30px;">
+          European Product Carriers Ltd. ©</h1>
+        </div>
+        
+        <div style="flex: 1; text-align: right;">
+          <h1>Near-Miss Report</h1>
+        </div>
+      </div>
+        <form id="nearMissForm">
+            <div  >
+                <span style='font-family:"Arial Narrow",sans-serif;white-space: nowrap;' >
+                <strong>Report No: 
+                <input type="text" name="report_number" size="3"> / 20
+                <input type="text" name="report_year" size="4">
+              </strong>
+            </span>
+                <table class="MsoNormalTable" style="float: right; border-collapse: collapse; font-size: auto; width: 50%; border: 1px solid #000;">
+                    <tbody>
+                        <tr>
+                            <td colspan="15" style="width: auto; border: 1.5pt solid #000; border-bottom: none; background-color: #CCCCCC; padding: 0 5.4pt; text-align: center;">
+                                <h1 style="color: black; font-size: 16px; margin: 0;">For office Use only</h1>
+                            </td>
+                        </tr>
+                        <tr style="background-color: #CCCCCC;">
+                            <td style=" border-left: 1.5pt solid #000; background-color: #CCCCCC; padding: 0 5.4pt; font-family: 'Arial Narrow', sans-serif;">
+                                <p style="white-space: nowrap; margin: 0;"><strong><em><span style="font-size: medium; color: black;">Date In:</span></em></strong></p>
+                            </td>
+                            <td colspan="13" style="width: 150.7px; padding: 0 5.4pt; background-color: white; font-family: 'Arial Narrow', sans-serif;">
+                                <input type="date" class="MsoNormal" style="width: 100%; border: none; padding: 4px; background-color: inherit; font-family: inherit;">
+                            </td>
+                            <td style="width: 14px; border-right: 1.5pt solid #000; background-color: #CCCCCC; padding: 0 5.4pt; font-family: 'Arial Narrow', sans-serif;">
+                                <p style="margin: 0;"><span>&nbsp;</span></p>
+                            </td>
+                        </tr>
+                        <tr style="height: 4.0pt;">
+                            <td colspan="15" style="width: 203.4pt; border-top: none; border-left: solid windowtext 1.5pt; border-bottom: none; border-right: solid windowtext 1.5pt; background: #CCCCCC; padding: 0 5.4pt;">
+                                <p style="font-size: 3px; margin: 0;"><span>&nbsp;</span></p>
+                            </td>
+                        </tr>
+                        <tr style="height: 14.2pt;">
+                            <td style="width: 32.9pt; border-top: none; border-left: solid windowtext 1.5pt; border-bottom: none; border-right: solid windowtext 1.0pt; background: #CCCCCC; padding: 0 5.4pt;">
+                                <p style="font-size: medium; color: black; margin: 0;"><strong><em><span style="font-family: 'Arial Narrow', sans-serif;">Code:</span></em></strong></p>
+                            </td>
+                            <td style="width: 17px; border: 1px solid #000; border-left: none; background-color: white; padding: 0 5px;">
+                              <input type="text" name="c1" size="1">
+                            </td>
+                            <td style="width: 17px; border: 1px solid #000; border-left: none; background-color: white; padding: 0 5px;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 12.75pt; border: none; border-right: solid windowtext 1.0pt;background: #CCCCCC; padding: 0 5.4pt;">
+                                <p style="margin: 0;"><span>&nbsp;</span></p>
+                            </td>
+                            <td style="width: 12.75pt; border: solid windowtext 1.0pt; border-left: none;background: white; padding: 0 5.4pt;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 12.8pt; border: solid windowtext 1.0pt; border-left: none;background: white; padding: 0 5.4pt;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 12.75pt; border: solid windowtext 1.0pt; border-left: none;background: white; padding: 0 5.4pt;">
+                                <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 12.75pt; border: solid windowtext 1.0pt; border-left: none; background: white; padding: 0 5.4pt;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 12.75pt; border: none; border-right: solid windowtext 1.0pt;background: #CCCCCC; padding: 0 5.4pt;">
+                                <p style="margin: 0;"><span>&nbsp;</span></p>
+                            </td>
+                            <td style="width: 13.75pt; border: solid windowtext 1.0pt; border-left: none;background: white; padding: 0 5.4pt;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 13.8pt; border-top: solid windowtext 1.0pt; border-left: none; border-bottom: solid windowtext 1.0pt; border-right: double windowtext 1.5pt;background: white; padding: 0 5.4pt;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 13.75pt; border: solid windowtext 1.0pt; border-left: none; padding: 0 5.4pt;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td style="width: 13.8pt; border: solid windowtext 1.0pt; border-left: none; padding: 0 5.4pt;">
+                              <input type="text" name="c2" size="1">
+                            </td>
+                            <td colspan="2" style="width: 12.4pt; border: none; border-right: solid windowtext 1.5pt; background: #CCCCCC; padding: 0 5.4pt;">
+                                <p style="font-size: 3px; margin: 0;"><span>&nbsp;</span></p>
+                            </td>
+                        </tr>
+                        <tr style="height: 3.55pt;">
+                            <td colspan="15" style="width: 203.4pt; border: solid windowtext 1.5pt; border-top: none; background: #CCCCCC; padding: 0 5.4pt;">
+                                <p style="font-size: 3px; margin: 0;"><span>&nbsp;</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                    <table style="float: center;font-size: medium; width: full; border: 1px solid #000;">  
+                        <tbody>
+                        <tr><td style="width:3.0cm;border-top:none;border-left:none;border-bottom:  solid white 2.25pt;border-right:solid white 2.25pt;background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <p class="MsoHeader" style="text-align:right;"><strong><span lang="EN-GB" style='font-family:"Arial Narrow",sans-serif;color:black;'>Vessel&rsquo;s Name:</span></strong></p></td>
+                            <td style="width:15.0cm;border:none;border-bottom:solid white 2.25pt;background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <input type="text" class="MsoNormal" style="width: 100%; border: none; padding: 4px; background-color: inherit; font-family: inherit;">
+                            </td></tr>
+                        <tr><td style="width:3.0cm;border-top:none;border-left:none;border-bottom:  solid white 2.25pt;border-right:solid white 2.25pt;background:#CCCCCC;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <p class="MsoHeader" style="text-align:right;"><strong><span lang="EN-GB" style='font-family:"Arial Narrow",sans-serif;color:black;'>Date:</span></strong></p>
+                            </td>
+                            <td style="width:15.0cm;border:none;border-bottom:solid white 2.25pt;background:#CCCCCC;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <input type="date" name="date_of_birth" name="signature_image" accept="image/*" class="MsoNormal" style="width: 100%; border: none; padding: 4px; background-color: inherit; font-family: inherit;">
+                            </td> </tr>
+                        <tr>
+                            <td style="width:3.0cm;border-top:none;border-left:none;border-bottom:  solid white 2.25pt;border-right:solid white 2.25pt;background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <p class="MsoHeader" style="text-align:right;"><strong><span lang="EN-GB" style='font-family:"Arial Narrow",sans-serif;color:black;'>Master&rsquo;s Name:</span></strong></p>
+                            </td>
+                            <td style="width:15.0cm;border:none;border-bottom:solid white 2.25pt;background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <input type="text" class="MsoNormal" style="width: 100%; border: none; padding: 4px; background-color: inherit; font-family: inherit;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:3.0cm;border:none;border-right:solid white 2.25pt;background:#CCCCCC;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <p class="MsoHeader" style="text-align:right;"><strong><span lang="EN-GB" style='font-family:"Arial Narrow",sans-serif;color:black;'>Signature:</span></strong></p>
+                            </td>
+                            <td style="width:15.0cm;border:none;background:#CCCCCC;padding:0cm 5.4pt 0cm 5.4pt;height:14.2pt;">
+                                <input type="file" name="signature_image" accept="image/*" class="MsoNormal" style="width: 100%; border: none; padding: 4px; background-color: inherit; font-family: inherit;">
+                            </td>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> 
+            <div  >
+                    <p style="text-align: justify;"><span style="font-family: 'Arial Narrow',sans-serif;">Company&rsquo;s Safety Procedures, require Masters to report Near-Misses to the Office. The Company encourages reporting of such cases, according to the standard guidelines developed. The terms and procedures are explained in <strong><em><u><span style="color: blue;">IMS-02 CP-09-02.</span></u></em></strong> <span style="color: black; background: #CCFFCC;">The </span></span><span style="font-family: 'Arial Narrow',sans-serif; color: black; background: #CCFFCC;">process of the </span><strong><span style="font-family: 'Arial Narrow',sans-serif; color: black; background: #CCFFCC;">Reporting</span></strong><span style="font-family: 'Arial Narrow',sans-serif; color: black; background: #CCFFCC;">, <strong>Investigation</strong>, <strong>Notifications</strong> etc. are made as per </span><em><u><span style="font-family: 'Arial Narrow',sans-serif; color: blue; background: #CCFFCC;">CP-09-04 par:14.18</span></u></em><span style="font-family: 'Arial Narrow',sans-serif; color: black; background: #CCFFCC;"> </span><strong><em><span style="font-size: 9.0pt; font-family: 'Arial Narrow',sans-serif; color: black; background: #CCFFCC;">(Practical &ldquo;Company Specific&rdquo; Guidance for Incident</span></em></strong><strong><em><span style="font-size: 9.0pt; font-family: 'Arial Narrow',sans-serif; color: black; background: #99FF33;"> </span></em></strong><strong><em><span style="font-size: 9.0pt; font-family: 'Arial Narrow',sans-serif; color: black; background: #CCFFCC;">Notification Reporting</span></em></strong><strong><em><span style="font-size: 9.0pt; font-family: 'Arial Narrow',sans-serif;">).</span></em></strong><span style="font-family: 'Arial Narrow',sans-serif;"> Additionally, <strong>M-SCAT</strong> </span><strong><em><span style="font-size: 9.0pt; font-family: 'Arial Narrow',sans-serif; color: black; background: #CCFFCC;">(DNV.GL &ndash;Marine Systematic Cause Analysis Technique)</span></em></strong><span style="font-family: 'Arial Narrow',sans-serif;"> is used during the Investigation process. This form must be filed onboard in <strong>File No. 2</strong> and a copy to be sent to Head Office by <strong><u>e-mail</u></strong> for further analysis.</span></p>
+                  <p style="text-align: center;">Write the required details or Mark “□” the boxes as applicable – Date format: dd/MM/YYYY</p>
+                  </div>
+    
+            <div style="display: flex; flex-direction: row;">
+                <div style="flex: 1;">
+                  <h2>The Near Miss was identified by</h2>
+                  <ul class="checkbox-list">
+                    <li>
+                      <input type="checkbox" id="vesselPersonnel" name="vesselPersonnel"> Vessel's Personnel (Specify Rank):
+                      <input type="text" id="personnelRank" name="personnelRank" style="width: 50%; padding: 2px; margin-bottom: 2px;">
+                    </li>
+                    <li><input type="checkbox" id="officeSuperintendent" name="officeSuperintendent"> Office Superintendent/Representative</li>
+                    <li><input type="checkbox" id="swa" name="swa"> <span style="color: #4c6faf;"><strong>SWA </strong></span>(Stop Work Authority) See IMS #3 Section 7.1 OM-7.1.9 par: 9.6</li>
+                  </ul>
+                </div>
+                <div style="flex: 1;">
+                  <h2>The Case is Categorised as</h2>
+                  <ul class="checkbox-list">
+                    <li><input type="checkbox" id="minorNearMiss" name="minorNearMiss"> <span style="color: #00b509;"><strong>Minor</strong> </span>Near Miss</li>
+                    <li><input type="checkbox" id="seriousNearMiss" name="seriousNearMiss"> <span style="color:#c70000 ;"><strong>Serious</strong></span> Near Miss</li>
+                  </ul>
+                  <p style="background-color: yellow;">(Important Note: As per VIQ 5.8 N.Miss reports must be generated by ALL Ranks not only the Master or senior officers onboard and not just from one department)</p>
+                </div>
+              </div>
+    
+              <h2>Section A - Near-Miss Details</h2>
+              <table>
+                <tr>
+                  <th colspan="2">Details</th>
+                </tr>
+                <tr>
+                  <td>Date (Local):</td>
+                  <td><input type="date" id="localDate" name="localDate"></td>
+                </tr>
+                <tr>
+                  <td>Time (Local):</td>
+                  <td><input type="time" id="localDate" name="localDate"></td>
+                </tr>
+                <tr>
+                  <td>Date (UTC):</td>
+                  <td><input type="date" id="utcDate" name="utcDate"></td>
+                </tr>
+                <tr>
+                  <td>Time (UTC):</td>
+                  <td><input type="time" id="utcDate" name="utcDate"></td>
+                </tr>
+                <tr>
+                  <td>Position:</td>
+                  <td>
+                    <ul style="list-style-type: none; padding: 0; margin: 0; display: flex; flex-wrap: nowrap; gap: 20px;">
+                      <li style="display: flex; align-items: center; white-space: nowrap;">
+                        <input type="checkbox" id="positionPort" name="positionPort" style="margin-right: 5px;">
+                        <label for="positionPort">Port</label>
+                      </li>
+                      <li style="display: flex; align-items: center; white-space: nowrap;">
+                        <input type="checkbox" id="positionAnchorage" name="positionAnchorage" style="margin-right: 5px;">
+                        <label for="positionAnchorage">Anchorage</label>
+                      </li>
+                      <li style="display: flex; align-items: center; white-space: nowrap;">
+                        <input type="checkbox" id="positionSea" name="positionSea" style="margin-right: 5px;">
+                        <label for="positionSea">At Sea</label>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Other:</td>
+                  <td><input type="text" id="otherPosition" name="otherPosition"></td>
+                </tr>
+              </table>
+    
+              <h2>Section B - Near-Miss Related to -(Mark only one)</h2>
+              <table>
+                <tr>
+                  <th colspan="4">Near-Miss Related To</th>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="actOfWar" name="actOfWar"> Act of War</td>
+                  <td><input type="checkbox" id="Anchoring" name="Anchoring"> Anchoring</td>
+                  <td><input type="checkbox" id="Ballastrelated" name="Ballastrelated"> Ballast related</td>
+                  <td><input type="checkbox" id="Beaching" name="Beaching"> Beaching</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="blackout" name="blackout"> Blackout</td>
+                  <td><input type="checkbox" id="Bunkering" name="Bunkering"> Bunkering</td>
+                  <td><input type="checkbox" id="Cargodamage" name="Cargodamage"> Cargo damage</td>
+                  <td><input type="checkbox" id="Cargorelated" name="Cargorelated"> Cargo related</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="cargoShifting" name="cargoShifting"> Cargo Shifting</td>
+                  <td><input type="checkbox" id="Contact" name="Contact"> Contact - floating structure</td>
+                  <td><input type="checkbox" id="intership" name="intership"> Contact - inter ship</td>
+                  <td><input type="checkbox" id="shorestructure" name="shorestructure"> Contact - shore structure</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="crewNegligence" name="crewNegligence"> Crew Negligence</td>
+                  <td><input type="checkbox" id="Deck" name="Deck"> Equipment failure - Deck</td>
+                  <td><input type="checkbox" id="ER" name="ER"> Equipment failure - ER</td>
+                  <td><input type="checkbox" id="damage" name="damage">  Equipment loss/damage</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="fallingObjects" name="fallingObjects"> Falling Objects</td>
+                  <td><input type="checkbox" id="Enclosed space" name="Enclosed space">Enclosed space</td>
+                  <td><input type="checkbox" id="Flooding" name="Flooding"> Flooding</td>
+                  <td><input type="checkbox" id=" Grounding" name=" Grounding">Grounding</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="harmfulSubstances" name="harmfulSubstances"> Harmful Substances</td>
+                  <td><input type="checkbox" id="Heavy weather" name="Heavy weather"> Heavy weather</td>
+                  <td><input type="checkbox" id=" Helicopter operations" name=" Helicopter operations">  Helicopter operations</td>
+                  <td><input type="checkbox" id="Ice damage" name="Ice damage">  Ice damage</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="maintenance" name="maintenance"> Maintenance</td>
+                  <td><input type="checkbox" id="Manual handling" name="Manual handling"> Manual handling</td>
+                  <td><input type="checkbox" id="Mooring/unmooring" name="Mooring/unmooring"> Mooring/unmooring</td>
+                  <td><input type="checkbox" id=" Routines" name=" Routines">   Routines</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" id="sabotage" name="sabotage"> Sabotage</td>
+                  <td><input type="checkbox" id="Slip/trip/fall" name="Slip/trip/fall"> Slip/trip/fall</td>
+                  <td><input type="checkbox" id="Structural failure" name="Structural failure"> Structural failure</td>
+                  <td><input type="checkbox" id="Wire / rope parting / surging" name="Wire / rope parting / surging">  Wire / rope parting / surging</td>
+                </tr>
+                <tr >
+                  <td colspan="4" ><input type="checkbox" id="other" name="other"> Other (specify):<input id="other" name="other" type="text" style="width:auto"></td>
+                </tr>
+              </table>
+    
+            <div >
+                <h2>Section C - Near-Miss Location - (Mark only one)</h2>
+                <table>
+                <tr>
+                    <th colspan="4">Near-Miss Related To</th>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="accommodationDeck" name="accommodationDeck"> Accommodation deck</td>
+                    <td><input type="checkbox" id="Alleyway" name="Alleyway"> Alleyway</td>
+                    <td><input type="checkbox" id="Aloft" name="Aloft"> Aloft</td>
+                    <td><input type="checkbox" id="Battery room" name="Battery room"> Battery room</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="boilerRoom" name="boilerRoom"> Boiler room</td>
+                    <td><input type="checkbox" id="Bow thrusters space" name="Bow thrusters space"> Bow thrusters space</td>
+                    <td><input type="checkbox" id=" Bridge" name=" Bridge">  Bridge</td>
+                    <td><input type="checkbox" id="Cabin" name="Cabin"> Cabin</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="cargoHold" name="cargoHold"> Cargo hold</td>
+                    <td><input type="checkbox" id="Cargo tank" name="Cargo tank"> Cargo tank</td>
+                    <td><input type="checkbox" id="Chartroom" name="Chartroom">Chartroom</td>
+                    <td><input type="checkbox" id="Dayroom" name="Dayroom">Dayroom</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="deckCrane" name="deckCrane"> Deck crane</td>
+                    <td><input type="checkbox" id="E/R workshop" name="E/R workshop"> E/R workshop</td>
+                    <td><input type="checkbox" id="Emergency generator room" name="Emergency generator room"> Emergency generator room</td>
+                    <td><input type="checkbox" id="Enclosed space" name="Enclosed space">  Enclosed space</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="engineRoom" name="engineRoom"> Engine room</td>
+                    <td><input type="checkbox" id="Focsle deck" name="Focsle deck">Focsle deck</td>
+                    <td><input type="checkbox" id=" Fore deck" name=" Fore deck">  Fore deck</td>
+                    <td><input type="checkbox" id=" Fridge flat" name=" Fridge flat">Fridge flat</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="galley" name="galley"> Galley</td>
+                    <td><input type="checkbox" id="Generator space" name="Generator space"> Generator space</td>
+                    <td><input type="checkbox" id=" Hatch cover" name=" Hatch cover">  Hatch cover</td>
+                    <td><input type="checkbox" id="Laundry" name="Laundry"> Laundry</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="mainDeck" name="mainDeck"> Main deck</td>
+                    <td><input type="checkbox" id="Overside" name="Overside"> Overside</td>
+                    <td><input type="checkbox" id="Pantry" name="Pantry">Pantry</td>
+                    <td><input type="checkbox" id=" Poop deck" name=" Poop deck">  Poop deck</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="pumpRoom" name="pumpRoom"> Pump room</td>
+                    <td><input type="checkbox" id="Purifier flat" name="Purifier flat">Purifier flat</td>
+                    <td><input type="checkbox" id=" Radio room" name=" Radio room"> Radio room</td>
+                    <td><input type="checkbox" id="Saloon" name="Saloon">  Saloon</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" id="steeringFlat" name="steeringFlat"> Steering flat</td>
+                    <td><input type="checkbox" id="Wheelhouse" name="Wheelhouse">Wheelhouse</td>
+                    <td colspan="4" ><input type="checkbox" id="other" name="other"> Other (specify):<input id="other" name="other" type="text" style="width:auto"></td>
+                    
+                  </tr>
+                  
+                </table>
+            </div>
+    
+            <div >
+                <h2>Section D - Environment Details  (Mark as applicable)</h2>
+                <table>
+                    <tr>
+                        <th colspan="4">Near-Miss Related To</th>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="blueSky" name="blueSky"> Blue sky (0-1/4 clouded)</td>
+                        <td><input type="checkbox" id="cloudy" name="cloudy"> Cloudy (more than ¾ clouded) </td>
+                        <td><input type="checkbox" id=" dew" name="dew">  Dew</td>
+                        <td><input type="checkbox" id="drizzle" name="drizzle"> Drizzle</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="dryAir" name="dryAir"> Dry air</td>
+                        <td><input type="checkbox" id=" fog" name="fog"> Fog</td>
+                        <td><input type="checkbox" id="fogoversea" name="fogoversea">   Fog over sea</td>
+                        <td><input type="checkbox" id="hail" name="hail">Hail</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="haze" name="haze"> Haze</td>
+                        <td><input type="checkbox" id=" hoarfrost" name=" hoarfrost"> Hoar frost</td>
+                        <td><input type="checkbox" id=" lightning" name=" lightning"> Lightning</td>
+                        <td><input type="checkbox" id="linesquall" name="linesquall">Line squall</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="mist" name="mist"> Mist</td>
+                        <td><input type="checkbox" id="overcastsky" name="overcastsky"> Overcast sky</td>
+                        <td><input type="checkbox" id=" passingshowers" name=" passingshowers">  Passing showers</td>
+                        <td><input type="checkbox" id=" ship" name="ship">  Precipitation in sight of ship</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="rain" name="rain"> Rain</td>
+                        <td><input type="checkbox" id="storm" name="storm">Sandstorm or dust storm</td>
+                        <td><input type="checkbox" id="weather" name="weather">  Squally weather</td>
+                        <td><input type="checkbox" id=" partly" name=" partly"> Sky partly (1/4 - 3/4) clouded</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="sleet" name="sleet"> Sleet</td>
+                        <td><input type="checkbox" id="snow" name="snow"> Snow</td>
+                        <td><input type="checkbox" id=" Storm" name="Storm"> Storm of drifting snow</td>
+                        <td><input type="checkbox" id="thunder" name="thunder"> Thunder</td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" id="thunderstorm" name="thunderstorm"> Thunderstorm with rain or snow</td>
+                        <td><input type="checkbox" id=" ugly" name="ugly"> Ugly threatening sky</td>
+                        <td><input type="checkbox" id="visibility" name="visibility"> Unusual visibility</td>
+                        <td><input type="checkbox" id=" air" name=" air"> Wet air (without precipitation)</td>
+                      </tr>
+                    </table>
+            </div>
+    
+            <div class="row">
+              <div class="column left-column">
+
+                <h2>Wind & Lighting Details</h2>
+                <p>(Circle “ ° ” direction (i.e NE)  on the wind direction card or complete the requested field)</p>
+                <p>Points of Compass: <input type="text" id="compassPoints" name="compassPoints"></p>
+                <img src="/compass.png" atl="compass">
+              </div>
+              <div class="column right-column">
+                <table >
+                  <tr >
+                      <th>Category</th>
+                      <th colspan="3" style="text-align: center;">Options</th>
+                  </tr>
+                  <tr>
+                      <td>Wind Force</td>
+                      <td>
+                        <input type="checkbox" id="windCalm" name="windCalm"> 0-Calm<br>
+                        <input type="checkbox" id="windLightAir" name="windLightAir"> 1-Light Air<br>
+                        <input type="checkbox" id="windLightBreeze" name="windLightBreeze"> 2-Light Breeze<br>
+                        <input type="checkbox" id="windGentleBreeze" name="windGentleBreeze"> 3-Gentle Breeze<br>
+                      </td>
+                      <td>
+                        <input type="checkbox" id="windModBreeze" name="windModBreeze"> 4-Mod.Breeze<br>
+                        <input type="checkbox" id="windFreshBreeze" name="windFreshBreeze"> 5-Fresh Breeze<br>
+                        <input type="checkbox" id="windStrongBreeze" name="windStrongBreeze"> 6-Strong Breeze<br>
+                        <input type="checkbox" id="windNearGale" name="windNearGale"> 7-Near Gale<br>
+                        <input type="checkbox" id="windGale" name="windGale"> 8-Gale<br>
+                      </td>
+                      <td>
+                        <input type="checkbox" id="windStrongGale" name="windStrongGale"> 9-Strong Gale<br>
+                        <input type="checkbox" id="windStorm" name="windStorm"> 10-Storm<br>
+                        <input type="checkbox" id="windViolentStorm" name="windViolentStorm"> 11-Violent Storm<br>
+                        <input type="checkbox" id="windHurricane" name="windHurricane"> 12-Hurricane<br>
+                        <input type="checkbox" id="windAbove12" name="windAbove12"> >12
+                      </td>
+                      
+                  </tr>
+                  <tr>
+                      <td>Sea State</td>
+                      <td>
+                          <input type="checkbox" id="seaCalm" name="seaCalm"> Calm- Glassy<br>
+                          <input type="checkbox" id="seaCalmRippled" name="seaCalmRippled"> Calm Rippled<br>
+                          <input type="checkbox" id="seaSmoothWavelets" name="seaSmoothWavelets"> Smooth wavelets<br>
+                          <input type="checkbox" id="seaSlight" name="seaSlight"> Slight
+                      </td>
+                      <td>
+                        <input type="checkbox" id="seaModerate" name="seaModerate"> Moderate<br>
+                        <input type="checkbox" id="seaRough" name="seaRough"> Rough<br>
+                        <input type="checkbox" id="seaVeryRough" name="seaVeryRough"> Very Rough<br>
+                      </td>
+                      <td>
+                        <input type="checkbox" id="seaHigh" name="seaHigh"> High<br>
+                        <input type="checkbox" id="seaVeryHigh" name="seaVeryHigh"> Very High<br>
+                        <input type="checkbox" id="seaPhenomenal" name="seaPhenomenal"> Phenomenal
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>Source of Lighting</td>
+                      <td>
+                        <input type="checkbox" id="daylightFull" name="daylightFull"> Daylight Full<br>
+                        <input type="checkbox" id="daylightPartial" name="daylightPartial"> Daylight Partial<br>
+                        <input type="checkbox" id="daylightShadow" name="daylightShadow"> Daylight Shadow<br>
+                        <input type="checkbox" id="deckLightingAdequate" name="deckLightingAdequate"> Deck Lighting Adequate<br>
+                        <input type="checkbox" id="otherLighting" name="otherLighting"> Other<input type="texts">
+                      </td>
+<td>
+                        <input type="checkbox" id="deckLightingGood" name="deckLightingGood"> Deck Lighting Good<br>
+                        <input type="checkbox" id="deckLightingPoor" name="deckLightingPoor"> Deck Lighting Poor<br>
+                        <input type="checkbox" id="intElLightingAdequate" name="intElLightingAdequate"> Int. El. Lighting Adequate<br>
+                        <input type="checkbox" id="intElLightingGood" name="intElLightingGood"> Internal El. Lighting Good<br>
+                      </td>
+                      <td>
+                        <input type="checkbox" id="intElLightingPoor" name="intElLightingPoor"> In. Electric Lighting Poor<br>
+                        <input type="checkbox" id="moonlightFull" name="moonlightFull"> Moonlight Full<br>
+                        <input type="checkbox" id="moonlightPartial" name="moonlightPartial"> Moonlight Partial<br>
+                        <input type="checkbox" id="nightDarkness" name="nightDarkness"> Night Darkness<br>
+                        <input type="checkbox" id="torchlight" name="torchlight"> Torchlight<br>
+                      </td>
+                        
+                      
+                  </tr>
+              </table>
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="input-group">
+                <label for="tempOutside">Temperature Outside:</label>
+                <input type="text" id="tempOutside" name="tempOutside">
+              </div>
+              <div class="input-group">
+                <label for="tempAmbient">Ambient Temperature:</label>
+                <input type="text" id="tempAmbient" name="tempAmbient">
+              </div>
+              <div class="input-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course">
+                <span>True</span>
+              </div>
+              <div class="input-group">
+                <label for="speed">Speed:</label>
+                <input type="text" id="speed" name="speed">
+                <span>Knots</span>
+              </div>
+            </div>
+            <div >
+              <h2>Section E - Near-Miss Description</h2>
+<p>(Follow the questionnaire below and describe what happened, according to the sequence of events or situation leading to the near-miss. Include materials, equipment or people involved etc.)</p>
+
+<ol>
+  <li><strong>Describe the Operation related to the Near-Miss</strong></li>
+  <li><strong>What Happened?</strong></li>
+  <li><strong>Who was involved?</strong></li>
+  <li><strong>What Equipment was involved and under what situation (Include equipment condition)?</strong></li>
+  <li><strong>What Material was involved (i.e paints, cargo, fuel, etc.)?</strong></li>
+  <li><strong>What Environmental factors (construction, noise, vapour, illumination etc.) were involved?</strong></li>
+  <li><strong>What could happen according to your point of view?</strong></li>
+</ol>
+
+<p>Give your answers to the questions, by following the above numbering …</p>
+
+<textarea  placeholder="Enter your answers here..."></textarea>
+            </div>
+            <div >
+              <h2>Section F - Immediate Corrective Action Implemented by Vessel</h2>
+              <textarea  placeholder="Enter your answers here..."></textarea>
+            </div>
+            <button  type="button" id="submitBtn">Submit Report</button>
+            <button type="button" id="clearBtn" class="button">Clear All</button>
+            
+        </form>
+    
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+      <div style="flex: 1; text-align: left;">
+        <p style="margin: 5px 0;"><strong>IMS Release: 04</strong></p>
+        <p style="margin: 5px 0;"><em>Controlled Copy</em></p>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <p style="margin: 5px 0;"><em>Confidential</em></p>
+      </div>
+      <div style="flex: 1; text-align: right;">
+        <p style="margin: 5px 0;"><strong>Document No: MAR-015b</strong></p>
+        <p style="margin: 5px 0;"><strong>Document Revision: 01</strong></p>
+        <p style="margin: 5px 0;"><em>Approved by General Manager</em></p>
+      </div>
+    </div>
+  </div>
+
+    <script>
+      document.getElementById('submitBtn').addEventListener('click', function() {
+        const element = document.getElementById("formData");
+    
+        // Wait for images to load
+        const images = Array.from(document.images);
+        const promises = images.map(img => {
+            if (img.complete) return Promise.resolve(img);
+            return new Promise(resolve => { img.onload = () => resolve(img); });
+        });
+    
+        Promise.all(promises).then(() => {
+            console.log('All images loaded');
+    
+            // Use html2pdf to generate PDF
+            html2pdf().set({
+                margin: [10, 10, 10, 10],
+                filename: 'report.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    logging: true,
+                    dpi: 192,
+                    letterRendering: true,
+                    useCORS: true,
+                    scrollY: 0, // Adjust if necessary
+                    windowWidth: document.documentElement.scrollWidth,
+                    windowHeight: document.documentElement.scrollHeight
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                onclone: function(clonedDoc) {
+                    // Clean up cloned document if needed
+                    Array.from(clonedDoc.getElementsByTagName('*')).forEach(el => {
+                        if (el.style.display === 'none' || el.style.visibility === 'hidden') {
+                            el.remove();
+                        }
+                    });
+                    console.log('Document cloned and cleaned');
+                }
+            }).from(element).save().then(() => {
+                console.log('PDF generation completed');
+                alert('Report saved successfully!');
+            }).catch(error => {
+                console.error('Error in PDF generation:', error);
+                alert('There was an error generating the PDF. Please check the console for details.');
+            });
+    
+        }).catch(error => {
+            console.error('Error loading images:', error);
+            alert('There was an error loading images. Please check the console for details.');
+        });
+    });
+    
+    
+    
+    
+    
+    document.getElementById('clearBtn').addEventListener('click', function() {
+        if (confirm('Are you sure you want to clear all data? This action cannot be undone.')) {
+            const form = document.getElementById('nearMissForm');
+            form.reset();
+            localStorage.removeItem('nearMissReport');
+            alert('All data has been cleared.');
+        }
+    });
+    
+    window.addEventListener('load', function() {
+        const savedData = localStorage.getItem('nearMissReport');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            const form = document.getElementById('nearMissForm');
+    
+            for (let key in data) {
+                if (form.elements[key]) {
+                    if (form.elements[key].type === 'checkbox') {
+                        form.elements[key].checked = data[key];
+                    } else {
+                        form.elements[key].value = data[key];
+                    }
+                }
+            }
+        }
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</body>
+</html>
